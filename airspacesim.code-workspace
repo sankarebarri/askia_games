@@ -1,0 +1,25 @@
+{
+	"folders": [
+		{
+			"path": "../../aviation-projects/airspacesim"
+		},
+		{
+			"path": "../../test/test_airspacesim"
+		},
+		{
+			"path": "../../mianka/celica_app30yapodiafinal/celica_app"
+		},
+		{
+			"path": "../askia_verse"
+		},
+		{
+			"path": "../askia_game"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "askia_game"
+	}
+}

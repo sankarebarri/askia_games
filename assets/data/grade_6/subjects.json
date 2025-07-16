@@ -1,0 +1,16 @@
+{
+  "maths": {
+    "title": "Mathématiques",
+    "topics": {
+      "algebra": "Algèbre de Base",
+      "geometry": "Géométrie Simple"
+    }
+  },
+  "french": {
+    "title": "Français",
+    "topics": {
+      "grammar": "Grammaire",
+      "vocabulary": "Vocabulaire"
+    }
+  }
+}

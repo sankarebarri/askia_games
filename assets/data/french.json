@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Quel est le pluriel de 'cheval' ?",
+    "options": ["Chevals", "Chevaus", "Chevaux", "Cheveaux"],
+    "answer": 2
+  },
+  {
+    "question": "Dans la phrase 'Il mange une pomme', quel est le verbe ?",
+    "options": ["Il", "une pomme", "mange", "la"],
+    "answer": 2
+  }
+]

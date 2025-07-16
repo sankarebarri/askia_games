@@ -1,0 +1,13 @@
+[
+  {
+    "question": "Combien de côtés un hexagone a-t-il ?",
+    "options": ["5", "6", "7", "8"],
+    "answer": 1
+  },
+  {
+    "question": "Quelle est l'aire d'un carré avec un côté de 5 cm ?",
+    "options": ["20 cm²", "25 cm", "25 cm²", "30 cm²"],
+    "answer": 2,
+    "time": 20
+  }
+]

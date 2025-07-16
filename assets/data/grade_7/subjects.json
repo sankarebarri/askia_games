@@ -1,0 +1,12 @@
+{
+  "maths": {
+    "title": "Mathématiques",
+    "topics": {
+      "functions": "Introduction aux Fonctions",
+      "stats": "Statistiques de Base"
+    }
+  },
+  "english": {
+    "title": "Anglais"
+  }
+}

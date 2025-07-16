@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau de Bord - Askiaverse</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="dashboard-layout" class="dashboard-layout">
+
+        <aside class="stats-sidebar">
+            <div class="logo-container">
+                <a href="dashboard.html" class="logo">Askiaverse</a>
+            </div>
+            <h2 id="welcome-message">Bienvenue, ...</h2>
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <h3>Niveau</h3>
+                    <p id="level-stat">--</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Expérience (XP)</h3>
+                    <div class="xp-bar-container">
+                        <div id="xp-bar" class="xp-bar"></div>
+                    </div>
+                    <p id="xp-stat">-- / --</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Askia Orbs</h3>
+                    <p id="orbs-stat">-- orb</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Jetons Focus</h3>
+                    <p id="focus-tokens-stat">-- 🧘</p>
+                </div>
+            </section>
+            <div class="sidebar-footer">
+                 <a href="#" id="logout-button" class="button secondary">Se Déconnecter</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <section class="grade-selection-section">
+                <h2>Choisis ta classe</h2>
+                <div id="grade-selector" class="grade-selector">
+                    </div>
+            </section>
+
+            <section id="challenge-section" class="challenge-section hidden">
+                <h2>Choisis ton défi</h2>
+                <div id="subject-grid" class="challenge-grid">
+                    </div>
+            </section>
+
+            <section class="coming-soon-section">
+                <h2 style="margin-top: 60px;">Prochainement sur Askiaverse</h2>
+                <div class="medallion-grid">
+                    <div class="medallion">
+                        <div class="medallion-icon">⚙️</div>
+                        <div class="medallion-title">Paramètres</div>
+                    </div>
+                    <div class="medallion">
+                        <div class="medallion-icon">👤</div>
+                        <div class="medallion-title">Mon Avatar</div>
+                    </div>
+                    <div class="medallion">
+                        <div class="medallion-icon">🏆</div>
+                        <div class="medallion-title">Badges</div>
+                    </div>
+                     <div class="medallion">
+                        <div class="medallion-icon">🏛️</div>
+                        <div class="medallion-title">Les Guildes</div>
+                    </div>
+                    <div class="medallion">
+                        <div class="medallion-icon">⚔️</div>
+                        <div class="medallion-title">Défi Inter-Écoles</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="topic-modal" class="topic-modal-overlay hidden">
+        <div class="topic-modal-content">
+            <button id="close-modal-btn" class="close-modal-btn" title="Fermer">&times;</button>
+            <h2 id="topic-modal-title">Choisir un Sujet</h2>
+            <div id="topic-modal-buttons" class="topic-buttons-container">
+                </div>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/dashboard.js"></script>
+</body>
+</html>

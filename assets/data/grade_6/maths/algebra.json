@@ -1,0 +1,19 @@
+[
+  {
+    "question": "Si x - 5 = 10, que vaut x ?",
+    "options": ["5", "10", "15", "20"],
+    "answer": 2,
+    "time": 10
+  },
+  {
+    "question": "Simplifiez l'expression : 2a + 3a",
+    "options": ["5a", "6a", "5a²", "6a²"],
+    "answer": 0
+  },
+  {
+    "question": "Résolvez pour y : 3y = 21",
+    "options": ["6", "7", "8", "9"],
+    "answer": 1,
+    "time": 10
+  }
+]

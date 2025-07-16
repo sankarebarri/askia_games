@@ -1,0 +1,19 @@
+[
+  {
+    "question": "Que vaut 9 x 7 ?",
+    "options": ["56", "63", "72", "61"],
+    "answer": 1,
+    "time": 10
+  },
+  {
+    "question": "Si un train parcourt 150 km en 2 heures, quelle est sa vitesse moyenne ?",
+    "options": ["75 km/h", "80 km/h", "150 km/h", "300 km/h"],
+    "answer": 0,
+    "time": 25
+  },
+  {
+    "question": "Que vaut 12 + 13 ?",
+    "options": ["24", "26", "25", "27"],
+    "answer": 2
+  }
+]

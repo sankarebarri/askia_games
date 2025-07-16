@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Défi en cours - Askiaverse</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/quiz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="quiz-body">
+
+    <div class="quiz-container">
+        <div class="quiz-header">
+            <div class="progress-info">
+                <div id="progress-text">Question 1/10</div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+             <button id="focus-token-btn" class="focus-token-btn" title="Utiliser un Jeton Focus pour arrêter le temps">
+                🧘 <span id="focus-token-count">3</span>
+            </button>
+            <div id="timer" class="timer">15</div>
+        </div>
+
+        <div class="question-container">
+            <h2 id="question-text">Chargement de la question...</h2>
+        </div>
+
+        <div id="answer-buttons" class="answer-buttons-grid">
+            </div>
+    </div>
+
+    <div id="results-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="results-title">Défi Terminé !</h2>
+            <p id="results-score">Votre score : 8 / 10</p>
+            <p id="results-feedback">Excellent travail !</p>
+            <div class="rewards">
+                <p id="results-xp">XP gagnés : +120</p>
+                <p id="results-orbs">Orbs gagnés : +25 🪙</p>
+            </div>
+            <a href="dashboard.html" class="button primary">Retour au tableau de bord</a>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/quiz.js"></script>
+</body>
+</html>

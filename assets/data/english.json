@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What is the past tense of 'go'?",
+    "options": ["Goed", "Gone", "Went", "Goned"],
+    "answer": 2
+  },
+  {
+    "question": "Which word is a synonym for 'happy'?",
+    "options": ["Sad", "Joyful", "Angry", "Tired"],
+    "answer": 1
+  }
+]

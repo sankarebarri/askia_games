@@ -1,0 +1,12 @@
+[
+  {
+    "question": "Quelle est la capitale du Mali ?",
+    "options": ["Gao", "Tombouctou", "Sikasso", "Bamako"],
+    "answer": 3
+  },
+  {
+    "question": "Quel grand empire était centré le long du fleuve Niger ?",
+    "options": ["L'Empire Romain", "L'Empire Songhaï", "L'Empire Mongol", "L'Empire Ottoman"],
+    "answer": 1
+  }
+]

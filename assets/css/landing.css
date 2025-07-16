@@ -1,0 +1,25 @@
+/* Styles only for the landing page */
+#hero {
+    text-align: center;
+    padding: 120px 0;
+}
+
+#hero h1 {
+    font-family: var(--font-family-headings);
+    font-size: 3.5em;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+#hero p {
+    font-size: 1.2em;
+    max-width: 600px;
+    margin: 0 auto 40px auto;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
