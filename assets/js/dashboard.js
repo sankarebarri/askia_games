@@ -1,52 +1,84 @@
-import { getCurrentUser, logout, createDefaultUser, saveUser } from './auth.js';
+import { getCurrentUser, logout, saveCurrentUser } from './auth.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-    // We are not running the constellation animation on this page anymore
-    // to keep the background clean.
-    
-    createDefaultUser();
     let user = getCurrentUser();
-
-    // Daily Reset Logic
-    const today = new Date().toISOString().split('T')[0];
-    if (user && user.lastPlayedDate !== today) {
-        user.focusTokens = 3;
-        user.lastPlayedDate = today;
-        saveUser(user);
-    }
     
     if (!user) {
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
         return;
     }
 
-    // Populate user stats in the sidebar
-    document.getElementById('welcome-message').innerText = `Bienvenue, ${user.username}!`;
+    // --- Daily Reset Logic ---
+    const today = new Date().toISOString().split('T')[0];
+    if (user.lastPlayedDate !== today) {
+        user.focusTokens = 3;
+        user.lastPlayedDate = today;
+        saveCurrentUser(user);
+    }
+    
+    // --- DOM Element Selections ---
+    const gradeSelector = document.getElementById('grade-selector');
+    const challengeSection = document.getElementById('challenge-section');
+    const challengeTitle = document.getElementById('challenge-title');
+    const subjectGrid = document.getElementById('subject-grid');
+    const userMenuBtn = document.getElementById('user-menu-btn');
+    const userDropdown = document.getElementById('user-dropdown');
+    const logoutBtn = document.getElementById('logout-button');
+    const topicModal = document.getElementById('topic-modal');
+    const closeTopicModalBtn = document.getElementById('close-topic-modal-btn');
+    const topicModalTitle = document.getElementById('topic-modal-title');
+    const topicModalButtons = document.getElementById('topic-modal-buttons');
+    const gameModeModal = document.getElementById('game-mode-modal');
+    const closeGameModeModalBtn = document.getElementById('close-game-mode-modal-btn');
+    const gameModeModalTitle = document.getElementById('game-mode-modal-title');
+    const gameModeModalButtons = document.getElementById('game-mode-modal-buttons');
+    const howToPlayBtn = document.getElementById('how-to-play-btn');
+    const rulesModal = document.getElementById('rules-modal');
+    const closeRulesBtn = document.getElementById('close-rules-btn');
+
+    // --- Populate UI ---
     document.getElementById('level-stat').innerText = user.level;
-    document.getElementById('orbs-stat').innerText = `${user.orbs} orbs`;
-    document.getElementById('focus-tokens-stat').innerText = `${user.focusTokens} 🧘`;
-    document.getElementById('xp-stat').innerText = `${user.xp} / ${user.xpToNextLevel} XP`;
+    document.getElementById('orbs-stat').innerText = user.orbs;
+    document.getElementById('focus-tokens-stat').innerText = user.focusTokens;
+    document.getElementById('username-display').innerText = user.username;
     const xpPercentage = (user.xp / user.xpToNextLevel) * 100;
     document.getElementById('xp-bar').style.width = `${xpPercentage}%`;
 
-    // Logout button listener
-    const logoutBtn = document.getElementById('logout-button');
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            logout();
-        });
-    }
+    // --- Event Listeners ---
+    logoutBtn.addEventListener('click', (e) => { e.preventDefault(); logout(); });
+    
+    userMenuBtn.addEventListener('click', () => {
+        userDropdown.classList.toggle('hidden');
+        userMenuBtn.classList.toggle('open');
+    });
 
-    // --- Grade, Subject, and Topic Selection Logic ---
-    const dashboardLayout = document.getElementById('dashboard-layout');
-    const gradeSelector = document.getElementById('grade-selector');
-    const challengeSection = document.getElementById('challenge-section');
-    const subjectGrid = document.getElementById('subject-grid');
-    const topicModal = document.getElementById('topic-modal');
+    window.addEventListener('click', (e) => {
+        if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+            userDropdown.classList.add('hidden');
+            userMenuBtn.classList.remove('open');
+        }
+    });
 
-    const availableGrades = [6, 7, 8, 9];
+    gradeSelector.addEventListener('click', (e) => {
+        if (e.target.classList.contains('grade-btn')) {
+            handleGradeSelection(e.target);
+        }
+    });
 
+    subjectGrid.addEventListener('click', (e) => {
+        const card = e.target.closest('.subject-card');
+        if (card) {
+            handleSubjectSelection(card);
+        }
+    });
+
+    howToPlayBtn.addEventListener('click', () => rulesModal.classList.remove('hidden'));
+    closeRulesBtn.addEventListener('click', () => rulesModal.classList.add('hidden'));
+    closeTopicModalBtn.addEventListener('click', () => topicModal.classList.add('hidden'));
+    closeGameModeModalBtn.addEventListener('click', () => gameModeModal.classList.add('hidden'));
+
+    // --- Grade & Subject Logic ---
+    const availableGrades = [6, 7];
     availableGrades.forEach(grade => {
         const button = document.createElement('button');
         button.innerText = `${grade}ème`;
@@ -55,115 +87,95 @@ document.addEventListener('DOMContentLoaded', () => {
         gradeSelector.appendChild(button);
     });
 
-    gradeSelector.addEventListener('click', (e) => {
-        if (e.target.classList.contains('grade-btn')) {
-            const selectedGrade = e.target.dataset.grade;
-            
-            document.querySelectorAll('.grade-btn').forEach(btn => btn.classList.remove('selected'));
-            e.target.classList.add('selected');
-
-            // This logic now applies the class that the CSS uses to set the accent color
-            dashboardLayout.className = 'dashboard-layout'; 
-            dashboardLayout.classList.add(`grade-theme-${selectedGrade}`);
-            
-            loadSubjectsForGrade(selectedGrade);
-        }
-    });
+    function handleGradeSelection(selectedButton) {
+        const selectedGrade = selectedButton.dataset.grade;
+        document.querySelectorAll('.grade-btn').forEach(btn => btn.classList.remove('selected'));
+        selectedButton.classList.add('selected');
+        challengeTitle.innerText = `Défis pour la ${selectedGrade}ème`;
+        loadSubjectsForGrade(selectedGrade);
+    }
 
     async function loadSubjectsForGrade(grade) {
         try {
             const res = await fetch(`assets/data/grade_${grade}/subjects.json`);
             if (!res.ok) throw new Error(`Cannot find subjects for grade ${grade}`);
             const subjects = await res.json();
-
-            subjectGrid.innerHTML = ''; 
+            subjectGrid.innerHTML = '';
             challengeSection.classList.remove('hidden');
-
             for (const subjectId in subjects) {
                 const subject = subjects[subjectId];
                 const card = document.createElement('div');
                 card.classList.add('subject-card');
                 card.dataset.subject = subjectId;
                 card.dataset.grade = grade;
-                card.setAttribute('role', 'button');
-                card.setAttribute('tabindex', '0');
-                
                 const icons = {maths: '🧮', french: '📖', english: '💬', 'hist-geo': '🌍'};
-                card.innerHTML = `
-                    <div class="icon">${icons[subjectId] || '📚'}</div>
-                    <div class="subject-title">${subject.title}</div>
-                `;
+                card.innerHTML = `<div class="icon">${icons[subjectId] || '📚'}</div><div class="subject-title">${subject.title}</div>`;
                 subjectGrid.appendChild(card);
             }
         } catch (error) {
             console.error(error);
-            subjectGrid.innerHTML = `<p style="grid-column: 1 / -1; font-size: 1.2em; color: rgba(255,255,255,0.7);">Les défis pour cette classe ne sont pas encore disponibles.</p>`;
             challengeSection.classList.remove('hidden');
+            subjectGrid.innerHTML = `<p>Les défis pour cette classe ne sont pas encore disponibles.</p>`;
+        }
+    }
+    
+    const defaultGradeBtn = gradeSelector.querySelector(`[data-grade='${user.defaultGrade}']`);
+    if (defaultGradeBtn) {
+        defaultGradeBtn.click();
+    }
+
+    async function handleSubjectSelection(card) {
+        const grade = card.dataset.grade;
+        const subjectId = card.dataset.subject;
+        try {
+            const res = await fetch(`assets/data/grade_${grade}/subjects.json`);
+            const subjects = await res.json();
+            const subjectData = subjects[subjectId];
+            if (!subjectData) return;
+            openTopicModal(grade, subjectId, subjectData);
+        } catch (error) {
+            alert("Impossible de charger les thèmes pour ce sujet.");
         }
     }
 
-    subjectGrid.addEventListener('click', async (e) => {
-        const card = e.target.closest('.subject-card');
-        if (card) {
-            const grade = card.dataset.grade;
-            const subjectId = card.dataset.subject;
-
-            try {
-                const res = await fetch(`assets/data/grade_${grade}/subjects.json`);
-                if (!res.ok) throw new Error('Could not load subject details');
-                const subjects = await res.json();
-                const subjectData = subjects[subjectId];
-
-                if (!subjectData) return;
-                openTopicModal(grade, subjectId, subjectData);
-
-            } catch (error) {
-                console.error("Error opening topic modal:", error);
-                alert("Impossible de charger les thèmes pour ce sujet.");
-            }
-        }
-    });
-
     function openTopicModal(grade, subjectId, subjectData) {
-        const modalTitle = document.getElementById('topic-modal-title');
-        const modalButtonsContainer = document.getElementById('topic-modal-buttons');
-        const closeModalBtn = document.getElementById('close-modal-btn');
-        
-        modalTitle.innerText = `Choisir un Thème en ${subjectData.title}`;
-        modalButtonsContainer.innerHTML = '';
-
+        topicModalTitle.innerText = `Choisir un Thème en ${subjectData.title}`;
+        topicModalButtons.innerHTML = '';
         if (subjectData.topics && Object.keys(subjectData.topics).length > 0) {
             for (const topicId in subjectData.topics) {
+                const topicData = subjectData.topics[topicId];
                 const button = document.createElement('button');
-                button.innerText = subjectData.topics[topicId];
+                button.innerText = topicData.title;
                 button.classList.add('topic-btn');
                 button.addEventListener('click', () => {
-                    window.location.href = `quiz.html?grade=${grade}&subject=${subjectId}&topic=${topicId}`;
+                    topicModal.classList.add('hidden');
+                    openGameModeModal(grade, subjectId, topicId, topicData);
                 });
-                modalButtonsContainer.appendChild(button);
+                topicModalButtons.appendChild(button);
             }
-            
-            const randomButton = document.createElement('button');
-            randomButton.innerText = 'Mélange Aléatoire';
-            randomButton.classList.add('topic-btn', 'random-mix');
-            randomButton.addEventListener('click', () => {
-                window.location.href = `quiz.html?grade=${grade}&subject=${subjectId}&topic=random`;
-            });
-            modalButtonsContainer.appendChild(randomButton);
-        } else {
-            const generalButton = document.createElement('button');
-            generalButton.innerText = `Commencer le défi '${subjectData.title}'`;
-            generalButton.classList.add('topic-btn');
-            generalButton.addEventListener('click', () => {
-                window.location.href = `quiz.html?grade=${grade}&subject=${subjectId}&topic=default`;
-            });
-            modalButtonsContainer.appendChild(generalButton);
         }
-
         topicModal.classList.remove('hidden');
+    }
 
-        closeModalBtn.addEventListener('click', () => {
-            topicModal.classList.add('hidden');
-        }, { once: true });
+    function openGameModeModal(grade, subjectId, topicId, topicData) {
+        gameModeModalTitle.innerText = `${topicData.title}: Choisis ton Mode de Jeu`;
+        gameModeModalButtons.innerHTML = '';
+        const gameModes = topicData.gameModes || ['multiple_choice'];
+        const friendlyNames = {
+            multiple_choice: "Quiz Rapide ✔️",
+            equation_builder: "Constructeur d'Équation 🖐️",
+            image_identify: "Défi Visuel 🖼️",
+            sentence_builder: "Constructeur de Phrases ✍️"
+        };
+        gameModes.forEach(modeId => {
+            const button = document.createElement('button');
+            button.innerText = friendlyNames[modeId] || modeId;
+            button.classList.add('topic-btn');
+            button.addEventListener('click', () => {
+                window.location.href = `quiz.html?grade=${grade}&subject=${subjectId}&topic=${topicId}&mode=${modeId}`;
+            });
+            gameModeModalButtons.appendChild(button);
+        });
+        gameModeModal.classList.remove('hidden');
     }
 });

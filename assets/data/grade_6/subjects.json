@@ -2,15 +2,23 @@
   "maths": {
     "title": "Mathématiques",
     "topics": {
-      "algebra": "Algèbre de Base",
-      "geometry": "Géométrie Simple"
+      "algebra": {
+        "title": "Algèbre de Base",
+        "gameModes": ["multiple_choice", "equation_builder"]
+      },
+      "geometry": {
+        "title": "Géométrie Simple",
+        "gameModes": ["multiple_choice", "image_identify"]
+      }
     }
   },
   "french": {
     "title": "Français",
     "topics": {
-      "grammar": "Grammaire",
-      "vocabulary": "Vocabulaire"
+      "grammar": {
+        "title": "Grammaire",
+        "gameModes": ["multiple_choice", "sentence_builder"]
+      }
     }
   }
 }

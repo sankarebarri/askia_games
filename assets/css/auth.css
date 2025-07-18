@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px;
+}
+
+.auth-box {
+    background: rgba(23, 31, 42, 0.7);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 40px;
+    text-align: center;
+}
+
+.auth-logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.logo-placeholder {
+    font-size: 2.5em;
+}
+
+.auth-logo {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.auth-subtitle {
+    font-size: 1.1em;
+    opacity: 0.8;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 12px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+}
+
+.error-message {
+    color: #ff6b6b;
+    min-height: 20px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2em;
+}
+
+.auth-switch {
+    margin-top: 30px;
+}
+
+.auth-switch a {
+    color: var(--secondary-color);
+    font-weight: 600;
+    text-decoration: none;
+}

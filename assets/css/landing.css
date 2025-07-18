@@ -1,4 +1,3 @@
-/* Styles only for the landing page */
 #hero {
     text-align: center;
     padding: 120px 0;
@@ -22,4 +21,10 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+}
+
+/* NEW: Style for the main call-to-action button */
+.large-cta {
+    padding: 20px 40px;
+    font-size: 1.5em;
 }

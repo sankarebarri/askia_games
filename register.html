@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - Askiaverse</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="digital-canvas"></canvas>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <h1 class="logo auth-logo">Askiaverse</h1>
+            <p class="auth-subtitle">Créez votre compte pour commencer à apprendre.</p>
+            
+            <form id="register-form">
+                <div class="input-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="input-group">
+                    <label for="password-confirm">Confirmez le mot de passe</label>
+                    <input type="password" id="password-confirm" name="password-confirm" required>
+                </div>
+                <div class="input-group">
+                    <label for="default-grade">Votre classe actuelle</label>
+                    <select id="default-grade" name="default-grade" required>
+                        <option value="" disabled selected>-- Choisissez votre classe --</option>
+                        <option value="6">6ème</option>
+                        <option value="7">7ème</option>
+                        <option value="8">8ème</option>
+                        <option value="9">9ème</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="city">Ville</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                <div class="input-group">
+                    <label for="school">École</label>
+                    <input type="text" id="school" name="school" required>
+                </div>
+                <p id="error-message" class="error-message"></p>
+                <button type="submit" class="button primary auth-btn">Créer le Compte</button>
+            </form>
+
+            <p class="auth-switch">Déjà un compte? <a href="login.html">Connectez-vous</a></p>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/register.js"></script>
+</body>
+</html>

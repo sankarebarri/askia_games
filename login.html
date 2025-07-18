@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Askiaverse</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="digital-canvas"></canvas>
+
+    <div class="auth-container">
+        <div class="auth-box">
+            <div class="auth-logo-container">
+                <!-- You can replace this with a real <img> tag for your logo later -->
+                <!-- <img src="./assets/images/askia_verse_logo.png" alt=""> -->
+                <h1 class="logo auth-logo">Askiaverse</h1>
+            </div>
+            <p class="auth-subtitle">Connectez-vous pour continuer votre aventure.</p>
+            
+            <form id="login-form">
+                <div class="input-group">
+                    <label for="username">Nom d'utilisateur</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <p id="error-message" class="error-message"></p>
+                <button type="submit" class="button primary auth-btn">Se Connecter</button>
+            </form>
+
+            <p class="auth-switch">Pas encore de compte? <a href="register.html">Inscrivez-vous</a></p>
+        </div>
+    </div>
+
+    <script type="module" src="assets/js/login.js"></script>
+</body>
+</html>

@@ -1,7 +1,8 @@
-// This module exports the animation function.
 export function initAnimation() {
     const canvas = document.getElementById('digital-canvas');
-    if (!canvas) return; // Exit if canvas isn't on the page
+    if (!canvas) {
+        return;
+    }
 
     const ctx = canvas.getContext('2d');
     canvas.width = window.innerWidth;

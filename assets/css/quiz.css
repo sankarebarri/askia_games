@@ -1,12 +1,37 @@
-/* Styles only for the quiz page */
 .quiz-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* --- Game Header --- */
+.game-header {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: auto;
+}
+
+.pause-btn {
+    font-size: 1.2em;
+}
+
+/* --- Main Content --- */
+.quiz-main-content {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: var(--dark-bg);
+    flex-grow: 1;
+    margin-bottom: auto;
 }
 
+/* --- Quiz Container --- */
 .quiz-container {
     width: 100%;
     max-width: 800px;
@@ -16,12 +41,11 @@
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.quiz-header {
+.quiz-progress-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 30px;
     gap: 20px;
+    margin-bottom: 30px;
 }
 
 .progress-info {
@@ -48,6 +72,64 @@
     background-color: var(--success-color);
     border-radius: 4px;
     transition: width 0.4s ease;
+}
+
+.focus-token-crystal {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, rgba(150, 227, 219, 0.8) 0%, var(--success-color) 100%);
+    border: 2px solid #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 10px 0px var(--success-color); }
+    50% { box-shadow: 0 0 25px 8px rgba(99, 183, 175, 0.4); }
+    100% { box-shadow: 0 0 10px 0px var(--success-color); }
+}
+
+.focus-token-crystal:hover {
+    transform: scale(1.1);
+}
+
+.focus-token-icon {
+    font-size: 2em;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.focus-token-count {
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 1em;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff;
+}
+
+.focus-token-crystal.depleted {
+    filter: grayscale(100%) brightness(0.6);
+    cursor: not-allowed;
+    animation: none;
+    box-shadow: none;
+}
+
+.focus-token-crystal.depleted:hover {
+    transform: none;
 }
 
 .timer {
@@ -113,18 +195,18 @@
     opacity: 0.8;
 }
 
-/* Modal Styles */
+/* --- Modal Styles --- */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0,0,0,0.8);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 200;
     animation: fadeIn 0.3s ease-out;
 }
 
@@ -134,6 +216,7 @@
     border-radius: 16px;
     text-align: center;
     max-width: 500px;
+    border: 1px solid var(--secondary-color);
 }
 
 @keyframes fadeIn {
@@ -144,7 +227,6 @@
 .modal-content h2 {
     font-family: var(--font-family-headings);
     font-size: 2.5em;
-    color: var(--secondary-color);
     margin-top: 0;
 }
 
@@ -159,39 +241,30 @@
     font-weight: 600;
 }
 
-.hidden {
-    display: none;
+.pause-menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
 }
 
-/* Add these new styles to your quiz.css file */
-.focus-token-btn {
-    background-color: transparent;
-    border: 2px solid var(--success-color);
-    color: var(--success-color);
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    font-size: 1.5em;
-    cursor: pointer;
+.quit-btn {
+    background-color: #a12828;
+    border-color: #a12828;
+    color: white;
+}
+.quit-btn:hover {
+    background-color: #D32F2F !important;
+    border-color: #D32F2F !important;
+}
+
+/* NEW: Styles for the guest modal footer */
+.guest-modal-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s ease;
-}
-
-.focus-token-btn:hover:not(:disabled) {
-    background-color: var(--success-color);
-    color: var(--dark-bg);
-}
-
-.focus-token-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    border-color: grey;
-    color: grey;
-}
-
-.focus-token-btn span {
-    font-size: 0.7em;
-    margin-left: 2px;
+    gap: 15px;
 }
