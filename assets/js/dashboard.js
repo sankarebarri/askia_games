@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
-    // --- Daily Reset Logic ---
     const today = new Date().toISOString().split('T')[0];
     if (user.lastPlayedDate !== today) {
         user.focusTokens = 3;
@@ -16,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         saveCurrentUser(user);
     }
     
-    // --- DOM Element Selections ---
+    // --- DOM Selections ---
     const gradeSelector = document.getElementById('grade-selector');
     const challengeSection = document.getElementById('challenge-section');
     const challengeTitle = document.getElementById('challenge-title');

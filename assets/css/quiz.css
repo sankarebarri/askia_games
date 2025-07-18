@@ -74,6 +74,13 @@
     transition: width 0.4s ease;
 }
 
+/* --- Power Crystal Styles --- */
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 10px 0px var(--success-color); }
+    50% { box-shadow: 0 0 25px 8px rgba(99, 183, 175, 0.4); }
+    100% { box-shadow: 0 0 10px 0px var(--success-color); }
+}
+
 .focus-token-crystal {
     position: relative;
     width: 64px;
@@ -87,12 +94,6 @@
     align-items: center;
     transition: all 0.3s ease;
     animation: pulse-glow 3s infinite ease-in-out;
-}
-
-@keyframes pulse-glow {
-    0% { box-shadow: 0 0 10px 0px var(--success-color); }
-    50% { box-shadow: 0 0 25px 8px rgba(99, 183, 175, 0.4); }
-    100% { box-shadow: 0 0 10px 0px var(--success-color); }
 }
 
 .focus-token-crystal:hover {
@@ -132,6 +133,7 @@
     transform: none;
 }
 
+/* --- Timer and other styles --- */
 .timer {
     font-family: var(--font-family-headings);
     font-size: 2em;
@@ -258,7 +260,6 @@
     border-color: #D32F2F !important;
 }
 
-/* NEW: Styles for the guest modal footer */
 .guest-modal-footer {
     margin-top: 30px;
     padding-top: 20px;

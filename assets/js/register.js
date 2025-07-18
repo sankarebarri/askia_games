@@ -31,19 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
         const result = register(username, password, defaultGrade, city, school);
 
         if (result.success) {
-            login(username, password); // Log the new user in
+            login(username, password);
 
-            // --- Apply Guest Bonus ---
             const urlParams = new URLSearchParams(window.location.search);
             const guestXp = parseInt(urlParams.get('guestScore'), 10) || 0;
             const guestOrbs = parseInt(urlParams.get('guestOrbs'), 10) || 0;
 
             if (guestXp > 0 || guestOrbs > 0) {
-                let newUser = getCurrentUser(); // Get the newly logged-in user
+                let newUser = getCurrentUser();
                 if (newUser) {
                     newUser.xp += guestXp;
                     newUser.orbs += guestOrbs;
-                    saveCurrentUser(newUser); // Save the updated data
+                    saveCurrentUser(newUser);
                 }
             }
             

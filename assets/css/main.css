@@ -42,7 +42,6 @@ header .container {
     align-items: center;
 }
 
-/* NEW: Added flex and gap to the nav for button spacing */
 header nav {
     display: flex;
     align-items: center;
@@ -72,7 +71,7 @@ footer {
     font-weight: 600;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
-    white-space: nowrap; /* Prevents button text from wrapping */
+    white-space: nowrap;
 }
 
 .button:hover {

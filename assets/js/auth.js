@@ -30,7 +30,6 @@ export function saveCurrentUser(userData) {
 
 export function logout() {
     localStorage.removeItem(CURRENT_USER_KEY);
-    // CORRECTED: Redirects to the main landing page
     window.location.href = 'index.html';
 }
 
@@ -74,7 +73,6 @@ export function register(username, password, defaultGrade, city, school) {
 export function initializeDatabase() {
     const allUsers = getAllUsers();
     if (allUsers.length === 0) {
-        console.log('No users found. Creating default "hamza" user.');
         const hamza = {
             username: 'hamza',
             password: '123456',
