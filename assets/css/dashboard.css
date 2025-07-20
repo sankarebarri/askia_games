@@ -1,7 +1,17 @@
+/* Global hidden class for modals and other elements */
+.hidden {
+    display: none !important;
+}
+
 body {
     background-color: #090A0F;
     background-image: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
     background-attachment: fixed;
+}
+
+html, body, .dashboard-layout {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* --- Main Header --- */
@@ -150,38 +160,41 @@ body {
 
 /* --- Main Navigation Bar --- */
 .main-nav {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    background-color: rgba(9, 10, 15, 0.5);
-    padding: 10px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  background-color: rgba(9, 10, 15, 0.5);
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  margin-bottom: 24px;
 }
-
 .nav-link {
-    font-family: var(--font-family-headings);
-    font-size: 1.2em;
-    font-weight: 600;
-    color: var(--text-color);
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: all 0.2s ease;
+  font-family: var(--font-family-headings);
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #4B8691;
+  text-decoration: none;
+  padding: 8px 22px;
+  border-radius: 8px;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
-
-.nav-link:hover {
-    background-color: var(--primary-color);
+.nav-link:hover:not(.disabled) {
+  background: #e0e7ef;
+  color: #2A4D69;
 }
-
 .nav-link.active {
-    background-color: var(--secondary-color);
-    color: var(--dark-bg);
+  background: #4B8691;
+  color: #fff;
+  font-weight: 700;
 }
-
 .nav-link.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-    background-color: transparent !important;
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: none;
 }
 
 /* --- Main Content --- */
@@ -382,4 +395,94 @@ body {
 
 .rules-section ul {
     padding-left: 20px;
+}
+
+/* Responsive styles for dashboard */
+@media (max-width: 900px) {
+  .dashboard-layout {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    min-width: 0;
+  }
+  .stats-sidebar, .main-content {
+    width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .main-content {
+    padding: 20px 10px;
+  }
+}
+@media (max-width: 600px) {
+  .dashboard-layout {
+    display: block;
+    width: 100vw;
+    min-width: 0;
+  }
+  .stats-sidebar, .main-content {
+    width: 100vw;
+    min-width: 0;
+    padding: 0 2vw;
+  }
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .grade-selector {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .challenge-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .subject-card {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .topic-modal-content, .rules-modal-content {
+    padding: 10px 5px;
+    max-width: 98vw;
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+  .stat-card {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    overflow: visible;
+  }
+  .logo-container, .logo {
+    max-width: 100%;
+    word-break: break-word;
+    text-align: center;
+    font-size: 1.3em;
+    margin-bottom: 8px;
+  }
+  .sidebar-footer, .sidebar-footer .button {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+  }
 }

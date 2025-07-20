@@ -1,0 +1,52 @@
+[
+  {
+    "type": "image_identify",
+    "question": "Clique sur la région de Gao.",
+    "images": [
+      { "src": "gao.avif", "label": "Gao", "isCorrect": true },
+      { "src": "sikasso.png", "label": "Sikasso", "isCorrect": false },
+      { "src": "mopti.png", "label": "Mopti", "isCorrect": false }
+    ],
+    "time": 20
+  },
+  {
+    "type": "image_identify",
+    "question": "Clique sur le drapeau du Mali.",
+    "images": [
+      { "src": "mali.png", "label": "Mali", "isCorrect": true },
+      { "src": "france.jpeg", "label": "France", "isCorrect": false },
+      { "src": "us.png", "label": "États-Unis", "isCorrect": false }
+    ],
+    "time": 20
+  },
+  {
+    "type": "image_identify",
+    "question": "Clique sur le drapeau du Niger.",
+    "images": [
+      { "src": "niger.png", "label": "Niger", "isCorrect": true },
+      { "src": "burkina.png", "label": "Burkina Faso", "isCorrect": false },
+      { "src": "russia.png", "label": "Russie", "isCorrect": false }
+    ],
+    "time": 20
+  },
+  {
+    "type": "image_identify",
+    "question": "Clique sur la région de Sikasso.",
+    "images": [
+      { "src": "sikasso.png", "label": "Sikasso", "isCorrect": true },
+      { "src": "gao.avif", "label": "Gao", "isCorrect": false },
+      { "src": "mopti.png", "label": "Mopti", "isCorrect": false }
+    ],
+    "time": 20
+  },
+  {
+    "type": "image_identify",
+    "question": "Clique sur la carte de l'Afrique.",
+    "images": [
+      { "src": "africa.png", "label": "Afrique", "isCorrect": true },
+      { "src": "mali_all.png", "label": "Mali", "isCorrect": false },
+      { "src": "france.jpeg", "label": "France", "isCorrect": false }
+    ],
+    "time": 20
+  }
+]

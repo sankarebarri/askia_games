@@ -62,7 +62,9 @@ export function register(username, password, defaultGrade, city, school) {
         focusTokens: 3,
         currentStreak: 0,
         lastPlayedDate: null,
-        completedQuizzes: []
+        completedQuizzes: [],
+        // NEW: Property to track league participation
+        leagueParticipation: {} // e.g., { "week_1": true }
     };
 
     allUsers.push(newUser);
@@ -86,7 +88,8 @@ export function initializeDatabase() {
             focusTokens: 3,
             currentStreak: 0,
             lastPlayedDate: null,
-            completedQuizzes: []
+            completedQuizzes: [],
+            leagueParticipation: {}
         };
         allUsers.push(hamza);
         saveAllUsers(allUsers);

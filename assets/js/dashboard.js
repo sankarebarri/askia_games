@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.classList.add('subject-card');
                 card.dataset.subject = subjectId;
                 card.dataset.grade = grade;
-                const icons = {maths: '🧮', french: '📖', english: '💬', 'hist-geo': '🌍'};
+                const icons = {maths: '🧮', french: '📖', english: '💬', hist_geo: '🌍'};
                 card.innerHTML = `<div class="icon">${icons[subjectId] || '📚'}</div><div class="subject-title">${subject.title}</div>`;
                 subjectGrid.appendChild(card);
             }
@@ -164,7 +164,8 @@ document.addEventListener('DOMContentLoaded', () => {
             multiple_choice: "Quiz Rapide ✔️",
             equation_builder: "Constructeur d'Équation 🖐️",
             image_identify: "Défi Visuel 🖼️",
-            sentence_builder: "Constructeur de Phrases ✍️"
+            sentence_builder: "Constructeur de Phrases ✍️",
+            texte_a_trou: "Texte à trou ✏️"
         };
         gameModes.forEach(modeId => {
             const button = document.createElement('button');

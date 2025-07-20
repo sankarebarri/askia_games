@@ -1,0 +1,37 @@
+[
+  {
+    "type": "multiple_choice",
+    "question": "Quel est le verbe dans la phrase : 'Le chat dort.' ?",
+    "options": ["chat", "dort", "le", "phrase"],
+    "answer": 1,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Quel mot est un adjectif ?",
+    "options": ["bleu", "manger", "vite", "chat"],
+    "answer": 0,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Complète : 'Nous _____ à l'école.'",
+    "options": ["allez", "allons", "va", "vais"],
+    "answer": 1,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Quel est le pluriel de 'animal' ?",
+    "options": ["animaux", "animals", "animales", "animale"],
+    "answer": 0,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Quelle est la bonne conjugaison : 'Tu _____ un livre.'",
+    "options": ["lis", "lit", "lisez", "lisons"],
+    "answer": 0,
+    "time": 20
+  }
+] 

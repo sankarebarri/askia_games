@@ -103,3 +103,35 @@ footer {
 .hidden {
     display: none !important;
 }
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 8px;
+  }
+  header .container, footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+  .container {
+    padding: 0 2vw;
+  }
+  .button, .button.primary, .button.secondary {
+    font-size: 1em;
+    padding: 10px 12px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  header .container, footer .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .logo {
+    font-size: 1.2em;
+  }
+}

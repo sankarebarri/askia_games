@@ -1,0 +1,44 @@
+[
+  {
+    "type": "texte_a_trou",
+    "question": "La superficie du Mali est d'environ _____ kilomètres carrés.",
+    "answer": "1 240 000",
+    "time": 20
+  },
+  {
+    "type": "texte_a_trou",
+    "question": "La région de Gao a une superficie d'environ _____ kilomètres carrés.",
+    "answer": "170 572",
+    "time": 20
+  },
+  {
+    "type": "texte_a_trou",
+    "question": "Le Mali partage une frontière avec _____ pays.",
+    "answer": "7",
+    "time": 20
+  },
+  {
+    "type": "texte_a_trou",
+    "question": "Le fleuve principal qui traverse le Mali est le _____.",
+    "answer": "Niger",
+    "time": 20
+  },
+  {
+    "type": "texte_a_trou",
+    "question": "La capitale du Mali est _____ .",
+    "answer": "Bamako",
+    "time": 20
+  },
+  {
+    "type": "texte_a_trou",
+    "question": "La ville de Gao est située sur la rive du fleuve _____.",
+    "answer": "Niger",
+    "time": 20
+  },
+  {
+    "type": "texte_a_trou",
+    "question": "Gao est connue pour son monument appelé la _____ de Gao.",
+    "answer": "Tombe",
+    "time": 20
+  }
+] 

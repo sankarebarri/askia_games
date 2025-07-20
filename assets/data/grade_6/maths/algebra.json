@@ -1,19 +1,37 @@
 [
   {
-    "question": "Si x - 5 = 10, que vaut x ?",
-    "options": ["5", "10", "15", "20"],
-    "answer": 2,
-    "time": 10
-  },
-  {
-    "question": "Simplifiez l'expression : 2a + 3a",
-    "options": ["5a", "6a", "5a²", "6a²"],
-    "answer": 0
-  },
-  {
-    "question": "Résolvez pour y : 3y = 21",
-    "options": ["6", "7", "8", "9"],
+    "type": "multiple_choice",
+    "question": "Combien font 7 + 5 ?",
+    "options": ["10", "12", "13", "14"],
     "answer": 1,
-    "time": 10
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Combien font 9 - 4 ?",
+    "options": ["3", "4", "5", "6"],
+    "answer": 2,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Combien font 6 × 3 ?",
+    "options": ["9", "12", "15", "18"],
+    "answer": 3,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Combien font 20 ÷ 4 ?",
+    "options": ["4", "5", "6", "8"],
+    "answer": 1,
+    "time": 20
+  },
+  {
+    "type": "multiple_choice",
+    "question": "Quel est le résultat de 2 + 6 × 2 ?",
+    "options": ["16", "14", "10", "8"],
+    "answer": 1,
+    "time": 25
   }
 ]

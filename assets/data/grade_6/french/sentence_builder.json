@@ -1,0 +1,37 @@
+[
+  {
+    "type": "sentence_builder",
+    "question": "Reconstitue la phrase correcte.",
+    "words": ["chat", "Le", ".", "dort"],
+    "answer": ["Le", "chat", "dort", "."],
+    "time": 25
+  },
+  {
+    "type": "sentence_builder",
+    "question": "Reconstitue la phrase correcte.",
+    "words": ["à", "Nous", ".", "allons", "l'école"],
+    "answer": ["Nous", "allons", "à", "l'école", "."],
+    "time": 25
+  },
+  {
+    "type": "sentence_builder",
+    "question": "Reconstitue la phrase correcte.",
+    "words": ["bleu", "Le", "est", "ciel", "."],
+    "answer": ["Le", "ciel", "est", "bleu", "."],
+    "time": 25
+  },
+  {
+    "type": "sentence_builder",
+    "question": "Reconstitue la phrase correcte.",
+    "words": ["livre", "un", "lis", "Je", "."],
+    "answer": ["Je", "lis", "un", "livre", "."],
+    "time": 25
+  },
+  {
+    "type": "sentence_builder",
+    "question": "Reconstitue la phrase correcte.",
+    "words": ["mange", "pomme", "une", "Elle", "."],
+    "answer": ["Elle", "mange", "une", "pomme", "."],
+    "time": 25
+  }
+] 

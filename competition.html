@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compétition - Askiaverse</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/competition.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <a href="dashboard.html" class="logo">Askiaverse</a>
+            <div class="hud">
+                <div class="hud-item" title="Niveau">LVL <span id="level-stat">--</span></div>
+                <div class="hud-item xp-bar-container" title="Expérience">
+                    <div id="xp-bar" class="xp-bar"></div>
+                </div>
+                <div class="hud-item" title="Askia Orbs">🪙 <span id="orbs-stat">--</span></div>
+                <div class="hud-item" title="Jetons Focus">🧘 <span id="focus-tokens-stat">--</span></div>
+            </div>
+            <div class="user-menu">
+                <button id="user-menu-btn" class="user-menu-btn">
+                    <div class="avatar-placeholder"></div>
+                    <span id="username-display"></span>
+                    <span class="arrow-down">▼</span>
+                </button>
+                <div id="user-dropdown" class="user-dropdown hidden">
+                    <a href="#" class="dropdown-item disabled">Profil (bientôt)</a>
+                    <a href="#" class="dropdown-item disabled">Paramètres (bientôt)</a>
+                    <a href="#" id="how-to-play-btn" class="dropdown-item">Comment Jouer</a>
+                    <hr>
+                    <a href="#" id="logout-button" class="dropdown-item">Se Déconnecter</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <a href="dashboard.html" class="nav-link">📚 Apprendre</a>
+        <a href="competition.html" class="nav-link active">🏆 Compétition</a>
+        <a href="community.html" class="nav-link">👥 Communauté</a>
+    </nav>
+
+    <main class="competition-main">
+        <div class="competition-grid">
+            <div class="competition-panel leaderboard-panel">
+                <h2 id="leaderboard-title">Classement National - Semaine 1</h2>
+                <div class="leaderboard-filters">
+                    <button class="filter-btn active" data-filter="national">National</button>
+                    <button class="filter-btn" data-filter="regional">Régional</button>
+                </div>
+                <table id="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rang</th>
+                            <th>École</th>
+                            <th>Ville</th>
+                            <th>Score Moyen</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div class="competition-panel cta-panel">
+                <div class="cta-box">
+                    <h3>Défi de la Semaine 1</h3>
+                    <p>Un quiz mixte pour tester toutes vos connaissances !</p>
+                    <div id="countdown-timer" class="countdown">La compétition se termine dans : --:--:--</div>
+                    <a href="quiz.html?mode=league&week=1" id="play-league-btn" class="button primary large-cta">Jouer pour mon École!</a>
+                </div>
+                <div id="my-school-stats" class="my-school-stats"></div>
+            </div>
+        </div>
+
+        <section class="hall-of-fame">
+            <h2>Tableau d'Honneur</h2>
+            <div class="fame-grid">
+                <div class="fame-category">
+                    <h3>🏆 Légendes de la Semaine</h3>
+                    <div id="legends-container" class="fame-container"></div>
+                </div>
+                <div class="fame-category">
+                    <h3>⭐ Champions de l'École</h3>
+                    <div id="champions-container" class="fame-container"></div>
+                </div>
+                <div class="fame-category">
+                    <h3>🚀 Étoiles Montantes</h3>
+                    <div id="rising-stars-container" class="fame-container"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script type="module" src="assets/js/competition.js"></script>
+</body>
+</html>

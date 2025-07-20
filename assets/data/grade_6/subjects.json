@@ -3,12 +3,8 @@
     "title": "Mathématiques",
     "topics": {
       "algebra": {
-        "title": "Algèbre de Base",
-        "gameModes": ["multiple_choice", "equation_builder"]
-      },
-      "geometry": {
-        "title": "Géométrie Simple",
-        "gameModes": ["multiple_choice", "image_identify"]
+        "title": "Arithmétique Simple",
+        "gameModes": ["multiple_choice"]
       }
     }
   },
@@ -18,6 +14,15 @@
       "grammar": {
         "title": "Grammaire",
         "gameModes": ["multiple_choice", "sentence_builder"]
+      }
+    }
+  },
+  "hist_geo": {
+    "title": "Histoire-Géo 🌍",
+    "topics": {
+      "hist_geo": {
+        "title": "Géographie du Mali",
+        "gameModes": ["texte_a_trou", "image_identify"]
       }
     }
   }

@@ -27,3 +27,57 @@
     padding: 20px 40px;
     font-size: 1.5em;
 }
+
+/* Responsive styles for landing */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    padding: 20px 10px;
+  }
+}
+@media (max-width: 600px) {
+  #hero {
+    padding: 40px 0 20px 0;
+  }
+  #hero h1 {
+    font-size: 2em;
+    word-break: break-word;
+    padding: 0 2vw;
+  }
+  #hero p {
+    font-size: 1em;
+    padding: 0 2vw;
+  }
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    align-items: center;
+  }
+  .large-cta {
+    width: 90vw;
+    max-width: 350px;
+    font-size: 1.1em;
+    padding: 14px 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  header .container, nav {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100vw;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+  .logo {
+    text-align: center;
+    font-size: 1.2em;
+    word-break: break-word;
+    margin-bottom: 8px;
+  }
+  nav a.button {
+    width: 100%;
+    margin-bottom: 8px;
+    box-sizing: border-box;
+  }
+}

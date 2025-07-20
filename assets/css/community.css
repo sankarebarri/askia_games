@@ -1,0 +1,163 @@
+.community-main {
+    padding: 40px;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.guild-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.guild-header h1 {
+    font-family: var(--font-family-headings);
+    font-size: 3em;
+    margin: 0;
+    color: var(--secondary-color);
+}
+
+.guild-header p {
+    font-size: 1.2em;
+    opacity: 0.8;
+}
+
+.community-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.5fr; /* 3 columns for quest, members, messages */
+    gap: 30px;
+}
+
+.community-panel {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.community-panel h2 {
+    font-family: var(--font-family-headings);
+    font-size: 1.8em;
+    margin-top: 0;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+/* Quest Panel Styles */
+.quest-title {
+    font-size: 1.3em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.quest-description {
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.quest-progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.quest-progress-bar {
+    height: 100%;
+    width: 0%; /* Set by JS */
+    background: linear-gradient(90deg, var(--primary-color), var(--success-color));
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out;
+}
+
+.quest-progress-text {
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+/* Members Panel Styles */
+.members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+}
+
+.member-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.member-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.member-info .name {
+    font-weight: 700;
+}
+
+.member-info .details {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+/* Messages Panel Styles */
+.messages-panel {
+    min-height: 500px; /* Ensure it has some height */
+}
+
+.messages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse; /* Newest messages at the bottom */
+    margin-bottom: 20px;
+}
+
+.message-card {
+    background-color: rgba(0,0,0,0.2);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.message-header {
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+.message-body {
+    margin: 0;
+}
+
+.message-input-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#message-input {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-size: 1em;
+    box-sizing: border-box;
+}
